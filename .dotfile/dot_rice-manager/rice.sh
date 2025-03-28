@@ -40,7 +40,7 @@ set_glazewm_config() {
   yq ".window_effects.focused_window.border.color = \"$(jq -r '.glazewmConfig.focusedWindowsColor' $RICE_SETTING_FILE_PATH)\" | .window_effects.other_windows.border.color = \"$(jq -r '.glazewmConfig.otherWindowsColor' $RICE_SETTING_FILE_PATH)\"" $SETTING_FILE_PATH > tmp.yaml && mv tmp.yaml $SETTING_FILE_PATH
   # Restart glazewm
   glazewm command wm-exit > /dev/null
-  glazewm > /dev/null 2>&1 &
+  glazewm > /dev/null 2>&1
 }
 
 # Set VSCode theme
@@ -89,7 +89,7 @@ for theme in "${avaiableThemes[@]}"; do
     set_glazewm_config
     set_vscode_theme
     set_windows_terminal_theme
-    # change_windows_lightdark_mode # Zebar sometime not running due to explorer is not yet opened
+    change_windows_lightdark_mode
     set_desktop_wallpaper
 
     echo "Completed!"
