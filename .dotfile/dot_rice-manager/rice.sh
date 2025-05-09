@@ -24,14 +24,6 @@ set_desktop_wallpaper() {
   powershell ./wackground.ps1 ./rices/$theme/wallpapers --set-random
 }
 
-# Set zebar config
-set_zebar_theme() {
-  echo "Setting zebar theme..."
-  # Replace ~/.glzr/zebar/dotifle-bar folder with the one in the rice
-  rm -rf ~/.glzr/zebar/dotfile-bar
-  cp -r ./rices/$theme/dotfile-bar ~/.glzr/zebar/dotfile-bar
-}
-
 # Set glazewm config
 set_glazewm_config() {
   echo "Setting glazewm border color..."
@@ -41,6 +33,15 @@ set_glazewm_config() {
   # Restart glazewm
   glazewm command wm-exit > /dev/null
   glazewm > /dev/null 2>&1
+}
+
+# Set zebar config
+set_zebar_theme() {
+  echo "Setting zebar theme..."
+  # Replace ~/.glzr/zebar/dotifle-bar folder with the one in the rice
+  rm -rf ~/.glzr/zebar/dotfile-bar
+  cp -r ./rices/$theme/dotfile-bar ~/.glzr/zebar/dotfile-bar
+  zebar > /dev/null 2>&1
 }
 
 # Set VSCode theme
@@ -85,8 +86,8 @@ for theme in "${avaiableThemes[@]}"; do
     echo "Applying $theme theme..."
 
     # # Apply configs
-    set_zebar_theme
     set_glazewm_config
+    set_zebar_theme
     set_vscode_theme
     set_windows_terminal_theme
     change_windows_lightdark_mode
