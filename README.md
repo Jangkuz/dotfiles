@@ -36,6 +36,8 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 
 ## 🎨 Themes
 
+🚧 *under construction*
+<!--
 | ✨ meimei |
 | :---: |
 | Warming and caring |
@@ -76,7 +78,7 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 | :---: |
 | Radiant love for purple, deeply cherished soul, mah lovely queen 👑 |
 |![shuri-1](rice-previews/shuri-1.png)|
-|![shuri-2](rice-previews/shuri-2.png)|
+|![shuri-2](rice-previews/shuri-2.png)| -->
 
 ## ⚙️ Current Configurable Settings
 
@@ -98,6 +100,7 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 
 - From terminal use command: ```rice <theme-name>``` (example: ```rice aqua```)
 - Wallpaper is selected randomize from rice's wallpaper folder.
+- Use ```rice``` for helps.
 
 ### Change wallpaper
 
@@ -217,10 +220,10 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
 
 ### Install VS Code Extensions for Theming
 
-- Icons: [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- Icons: [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - *best icon pack in my opinion*
 - Themes:
-  - [Tinted VSCode](https://marketplace.visualstudio.com/items?itemName=TintedTheming.base16-tinted-themes)
-  - [Gruvbox Theme](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)
+  - [Tinted VSCode](https://marketplace.visualstudio.com/items?itemName=TintedTheming.base16-tinted-themes) - *using by other themes*
+  - [Gruvbox Theme](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox) - *using by Wasabi theme*
 - ADDITIONAL: To change vscode UI Font, use this extension: [Fonted](https://marketplace.visualstudio.com/items?itemName=degreat.fonted)
 
 ### Auto start GlazeWM & Zebar at windows start
