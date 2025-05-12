@@ -6,7 +6,7 @@
 #  About   :  This file will configure and launch the rice.
 #
 
-avaiableThemes=("wasabi" "shuri" "julia")
+avaiableThemes=("aqua" "wasabi" "shuri")
 
 usage() {
   printf "
@@ -14,8 +14,8 @@ Rice Script for change rice's current wallpaper
 
 Usage:
 `basename $0`\t[aqua]  \t A playful, mysterious girl with eyes like shimmering aqua, her movements graceful and quick, full of curiosity and charm
+\t[wasabi] \t Mysterious and alluring, with eyes like deep ocean blue and an aura of fire, she exudes both danger and enchantment
 \t[shuri] \t A gentle presence in shades of purple, like twilight’s soft embrace—quietly comforting, effortlessly lovely
-\t[julia] \t Mysterious and alluring, with eyes like deep ocean blue and an aura of aqua fire, she exudes both danger and enchantment
 "
 }
 

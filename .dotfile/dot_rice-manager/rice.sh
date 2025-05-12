@@ -6,7 +6,7 @@
 #  About   :  This file will configure and launch the rice.
 #
 
-avaiableThemes=("aqua" "wasabi")
+avaiableThemes=("aqua" "wasabi" "shuri")
 
 usage() {
   printf "
@@ -37,7 +37,7 @@ set_glazewm_config() {
   # Restart glazewm
   echo "Restarting GlazeWM..."
   glazewm command wm-exit > /dev/null
-  glazewm > /dev/null
+  glazewm > /dev/null 2>&1
   echo "✅ GlazeWM theme applied!"
 }
 
