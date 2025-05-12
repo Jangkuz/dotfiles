@@ -89,7 +89,7 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 - ☑️ Zebar theme
 - ☑️ Desktop wallpaper based on rice
 - ☑️ Vscode theme
-- ☑️ Windows light/dark mode based on rice
+- ~~☑️ Windows light/dark mode based on rice~~ ❌ Disabled - currently unstable and buggy
 - ❓ Windows color based on rice
 - ❓ Discord theme
 - 🚧 *under construction*
