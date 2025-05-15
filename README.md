@@ -124,7 +124,7 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 
 ℹ️ More keybinding can be found [here](https://github.com/glzr-io/glazewm/blob/main/resources/assets/cheatsheet.png)
 
-## 📦 Step by Step Installation
+## 📦 Step by Step Installation (Working 100% - last tested 16/5/2025)
 
 ### Pre-install notices
 
@@ -233,23 +233,27 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
 
 ### Auto start GlazeWM & Zebar at windows start
 
-- Just need to copy GlazeWM shortcut
+- Just need to copy the GlazeWM shortcut.
 - Open Start Up folder by pressing **Windows + R** and type in ```shell:startup```
-- Paste the shortcut in here and we are done
-- Zebar is open and close with GlazeWM
+- Paste the shortcut in here and we are done, you can also run GlazeWM now.
+- Zebar is open and close with GlazeWM.
 
 ### Optional Tweaks
 
+<!---
 - Disable windows 11 rounded corners:
   - Install windows 11 rounded corners setup: [win11-toggle-rounded-corners](https://github.com/oberrich/win11-toggle-rounded-corners)
-- Enable automatically hide the taskbar
+-->
+- Enable automatically hide the taskbar (for more vertical space).
 - Improve performance and reduce disk utilization for system with high amount of free RAM:
-  - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**
+  - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**.
 - Restore old context menu (Require restart):
-  - Open/Run ```scripts/Restore-old-context-menu.reg```
+  - Open/Run ```scripts/Restore-old-context-menu.reg```.
+<!---
 - Fix terminal cursor glitching while typing: (This is only working with Alacritty, current version using Windows Terminal)
   - Run ```scripts/terminal-cursor-fix.sh```
   - Close then re-open terminal
+-->
 - Show 'Max cpu freq' in power plan setting, allow changing maximum cpu freqency to attempt lower temperature and more stable machine **(Very useful, highly recommend for laptop)**:
   - Run ```scripts/show-cpu-frequency-power-plan-setting.ps1``` with **Powershell**
   - Search for **"Edit Power Plan" > Change Plan Settings > Change advanced power settings > Processor power management > Maximum processor frequency** (Showing after running the script, change this to preferred frequency)
