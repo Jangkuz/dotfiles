@@ -150,12 +150,17 @@ Font need to be download and install manually *(Windows is planning to allows in
 ### Install chezmoi and apply dotfiles
 
 - Install chezmoi from Winget with: ```winget install chezmoi```
-- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply aquapaka``` (Might need close and reopen powershell for chezmoi command to be recognizable after installed)
+- Close and reopen terminal for chezmoi command to be recognized.
+- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply aquapaka --branch new-version-3```
+- If you are using Windows Terminal, you will notice the terminal theme changed immediately.
+![image](https://github.com/user-attachments/assets/48995749-d967-4ee3-b2cf-adce8bd76cb9)
+
 
 ### Install packages
 
-- After chezmoi apply the dotfiles, the chezmoi source folder could be found in ```%userprofile%/.local/share/chezmoi```, ```install-packages.ps1``` file can be found inside ```scripts``` folder
+- After chezmoi apply the dotfiles, the chezmoi source folder could be found in ```%userprofile%/.local/share/chezmoi```, ```install-packages.ps1``` file can be found inside ```scripts``` folder (⚠️Note: Windows Terminal is now default open zsh shell which we haven't installed yet so it will show error if you try to open Windows Terminal, let's open Windows Powershell instead)
 - Edit ```install-packages.ps1```, comment out packages/apps that are not needed (All non-required packages are commented by default)
+- ⚠️ Note: If glazewm or zebar already installed, please uninstall them first before running the install script, this will make sure the versions are correct.
 - Run ```install-packages.ps1``` script with **Powershell** to install nessesary packages (⚠️ Note: sometime installation could fail, re-run the script to ensure all packages has been installed)
 
 ### Add New Environment Variables
@@ -163,7 +168,7 @@ Font need to be download and install manually *(Windows is planning to allows in
 - Press Windows + S to open Search
 - Find and open "edit environment variables for your account"
 - Choose variable "Path" then click Edit
-- Click New to add ```%USERPROFILE%\.local\bin```
+- Click New then add ```%USERPROFILE%\.local\bin```
 
 ### Restart
 
