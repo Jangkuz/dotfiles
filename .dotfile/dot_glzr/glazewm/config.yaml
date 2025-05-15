@@ -153,6 +153,7 @@ window_rules:
         window_title: {regex: ".*? - Peek"}
       - window_process: {equals: "Lively"}
         window_class: {regex: "HwndWrapper"}
+      - window_title: {equals: "Command Palette"}
       # Ignores photoshop panels and Davinci Resolve windows.
       - window_title: {regex: "New Document|Color"}
       # Ignore fullscreen games.
