@@ -2,9 +2,9 @@
 
 Yes it's **Windows**
 
-![GitHub Release](https://img.shields.io/github/v/release/aquapaka/dotfiles)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/aquapaka/dotfiles/changeset-versioning.yml)
-![GitHub License](https://img.shields.io/github/license/aquapaka/dotfiles)
+![GitHub Release](https://img.shields.io/github/v/release/jade-tam/dotfiles)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jade-tam/dotfiles/changeset-versioning.yml)
+![GitHub License](https://img.shields.io/github/license/jade-tam/dotfiles)
 ![Discord](https://img.shields.io/discord/1162030825290866698)
 
 ## Introduction
@@ -91,7 +91,6 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 - ☑️ Vscode theme
 - ~~☑️ Windows light/dark mode based on rice~~ ❌ Disabled - currently unstable and buggy
 - ❓ Windows color based on rice
-- ❓ Discord theme
 - 🚧 *under construction*
 
 ## 📑 Basic usage
@@ -143,7 +142,7 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 
 Font need to be download and install manually *(Windows is planning to allows installing fonts from winget. Stay tune!)*:
 
-- [Pixelcraft Nerd Font](https://github.com/aquapaka/Pixelcraft/releases) (please download and use Nerd Font version)
+- [Pixelcraft Nerd Font](https://github.com/jade-tam/Pixelcraft/releases) (please download and use Nerd Font version)
 - [Pixel Code](https://qwerasd205.github.io/PixelCode/)
 - [Monofur Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monofur.zip)
 
@@ -151,7 +150,7 @@ Font need to be download and install manually *(Windows is planning to allows in
 
 - Install chezmoi from Winget with: ```winget install chezmoi```
 - Close and reopen terminal for chezmoi command to be recognized.
-- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply aquapaka --branch new-version-3```
+- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply jade-tam```
 - If you are using Windows Terminal, you will notice the terminal theme changed immediately.
 ![image](https://github.com/user-attachments/assets/48995749-d967-4ee3-b2cf-adce8bd76cb9)
 
@@ -205,7 +204,7 @@ pacman -S zsh
 
 ```
 
-Open **Powershell**, from your user folder (Example: ```C:\Users\aquapaka>```), run below command to install zsh themes and configs
+Open **Powershell**, from your user folder (Example: ```C:\Users\JadeTam>```), run below command to install zsh themes and configs
 
 ```
 # Install Theme: Powerlevel10k
