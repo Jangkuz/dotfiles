@@ -1,5 +1,39 @@
 # aquapaka-dotfiles
 
+## 3.0.0
+
+### Major Changes
+
+- bdfadae: feat: clean up komorebi config, add glazewm, refine doc
+- 8d00217: feat: update alacritty 0.14 config format, init dotfile version 3
+
+### Minor Changes
+
+- 6b68c27: feat: allow changing wallpaper to specific theme's wallpapers
+- c4d6d16: feat: configure komorebi bar for 2 monitors
+- 157e6b1: feat: add new theme shuri, configure font settings ricing
+- 0fee090: feat: add zebar config
+- ac81ad1: feat: ultimate configure glazewm and zebar for aqua theme
+- 5964b45: feat: configure komorebi bar
+- e3857ca: feat: add new theme julia, windows terminal font by theme
+- 833e42e: feat: add new auto tile rules
+- b2bec57: feat: setup komorebi bar theming
+- af1b4a8: feat: new theme wasabi
+- dd7c97f: feat: add media info
+- 9a6c810: feat: remove zebar and unused configs
+- 454f55a: feat: style audio info
+- 46f7bc4: feat: config wasabi bar theme
+- aa4a096: feat: replace alacritty with windows terminal
+- b529d99: feat: add shuri theme
+
+### Patch Changes
+
+- 4fbd4bd: fix: fix zebar not start on theme change
+- cd89206: fix: prevent losing data on jq parsing error
+- cfdf82e: feat: rule to prevent minecraft crash on start
+- 11c1d5a: chore: remove unused files
+- ceb1715: fix: force start zebar after changing theme
+
 ## 2.2.1
 
 ### Patch Changes
