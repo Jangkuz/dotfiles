@@ -1,11 +1,10 @@
 # Required packages (Needed for everything to work)
-winget install Git -e -i;
-winget install Alacritty.Alacritty --silent
-winget install LGUG2Z.komorebi --silent
-winget install LGUG2Z.whkd --silent
-winget install glzr-io.zebar --silent -v 1.8.1
+winget install Git.Git -e -i;
+winget install Microsoft.WindowsTerminal --silent
+winget install --id glzr-io.glazewm --exact --version 3.8.1 --no-upgrade --silent
+winget install --id glzr-io.zebar --exact --version 2.7.0 --no-upgrade --silent
 winget install --id eza-community.eza -e --silent;
-winget install --id MikeFarah.yq --silent;
+winget install --id MikeFarah.yq;
 winget install --id jqlang.jq --silent;
 winget install --id Microsoft.PowerToys -e --silent;
 winget install --id MSYS2.MSYS2 -e --silent;

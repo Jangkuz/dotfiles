@@ -27,15 +27,17 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 
 ## Core
 
-- Terminal: **Alacritty**
+- Terminal: **Windows Terminal**
 - Shell: **Zsh** inside MSYS2
-- Tiling Window Manager: **Komorebi**
-- Bar: **Zebar**
+- Tiling Window Manager: **GlazeWM 3**
+- Bar: **Zebar 2**
 - Package manager: **Winget**
 - Dotfiles manager: **Chezmoi**
 
 ## 🎨 Themes
 
+🚧 *under construction*
+<!--
 | ✨ meimei |
 | :---: |
 | Warming and caring |
@@ -76,29 +78,35 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 | :---: |
 | Radiant love for purple, deeply cherished soul, mah lovely queen 👑 |
 |![shuri-1](rice-previews/shuri-1.png)|
-|![shuri-2](rice-previews/shuri-2.png)|
+|![shuri-2](rice-previews/shuri-2.png)| -->
 
 ## ⚙️ Current Configurable Settings
 
 You can customize each theme inside ~/.rice-manager/rices and re-apply it (see **Change theme** below)
 
-- ☑️ Alacirtty theme
-- ☑️ Komorebi theme
+- ☑️ Windows Terminal theme
+- ☑️ GlazeWM border theme
 - ☑️ Zebar theme
 - ☑️ Desktop wallpaper based on rice
 - ☑️ Vscode theme
-- ☑️ Windows light/dark mode based on rice
+- ~~☑️ Windows light/dark mode based on rice~~ ❌ Disabled - currently unstable and buggy
 - ❓ Windows color based on rice
 - ❓ Discord theme
-- 🚧 Btop theme
 - 🚧 *under construction*
 
 ## 📑 Basic usage
 
 ### Change theme
 
-- From alacritty terminal use command: ```rice <theme-name>``` (example: ```rice meimei```)
-- Background is selected randomize from rice's wallpaper folder
+- From terminal use command: ```rice <theme-name>``` (example: ```rice aqua```)
+- Wallpaper is selected randomize from rice's wallpaper folder.
+- Use ```rice``` for helps.
+
+### Change wallpaper
+
+- From terminal use command: ```wallpaper <theme-name>``` (example: ```wallpaper aqua```)
+- This will change the wallpaper only, allow you to use wallpaper from other themes.
+- Wallpaper is selected randomize from selected rice's wallpaper folder.
 
 ### Useful keybindings
 
@@ -108,20 +116,15 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 |<kbd>alt</kbd> + <kbd>Space</kbd>| Open powertoy run |
 |<kbd>alt</kbd> + <kbd>h\|j\|k\|l</kbd>| Focus window left \| bottom \| top \| right|
 |<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>h\|j\|k\|l</kbd>| Move focusing window left \| bottom \| top \| right|
-|<kbd>alt</kbd> + <kbd>q</kbd>| Close focusing window|
+|<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>q</kbd>| Close focusing window|
 |<kbd>alt</kbd> + <kbd>1\|2\|3\|4\|5\|6\|7\|8\|9\|0</kbd>| Focus workspace {n}|
 |<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>1\|2\|3\|4\|5\|6\|7\|8\|9\|0</kbd>| Move focusing window to workspace {n}|
-|<kbd>alt</kbd> + <kbd>f</kbd>| Toggle float|
-|<kbd>alt</kbd> + <kbd>m</kbd>| Toggle monocide|
-|<kbd>alt</kbd> + <kbd>x</kbd>| Flip layout horizontal |
-|<kbd>alt</kbd> + <kbd>y</kbd>| Flip layout vertical |
-|<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>t</kbd>| Retile |
-|<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>r</kbd>| Reload whkd |
-|<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>r</kbd>| Reload komorebi and zebar |
+|<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>r</kbd>| Reload glazewm config |
+|<kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>e</kbd>| Exit glazewm |
 
-ℹ️ More keybinding can be found inside ```~/.config/whkdrc```
+ℹ️ More keybinding can be found [here](https://github.com/glzr-io/glazewm/blob/main/resources/assets/cheatsheet.png)
 
-## 📦 Step by Step Installation
+## 📦 Step by Step Installation (Working 100% - last tested 16/5/2025)
 
 ### Pre-install notices
 
@@ -132,7 +135,7 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
   - Remove added task scheduler tasks
   - Remove added config files in ```~/.config```
 - If you have just fresh install windows 11, you need to go to Microsoft Store and update your "App Installer". Otherwise winget will not working.
-- For those who use another windows 11 version (like IOT Enterprise, which doesn't come with Microsoft Store):
+- For those who use another windows 11 version (like IOT Enterprise LTSC, which doesn't come with Microsoft Store):
   - First download the latest version of winget: <https://aka.ms/getwinget>
   - Then open Powershell and run: ```Add-AppxPackage -Path <path to downloaded .msixbundle>``` to install winget
 
@@ -141,21 +144,27 @@ You can customize each theme inside ~/.rice-manager/rices and re-apply it (see *
 Font need to be download and install manually *(Windows is planning to allows installing fonts from winget. Stay tune!)*:
 
 - [Pixelcraft Nerd Font](https://github.com/aquapaka/Pixelcraft/releases) (please download and use Nerd Font version)
-- [CaskaydiaMono Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaMono.zip)
-- [Monaspace](https://github.com/githubnext/monaspace)
-- [Scientifica](https://github.com/nerdypepper/scientifica/releases)
-- [DM Mono](https://fonts.google.com/specimen/DM+Mono)
+- [Pixel Code](https://qwerasd205.github.io/PixelCode/)
+- [Monofur Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Monofur.zip)
 
 ### Install chezmoi and apply dotfiles
 
 - Install chezmoi from Winget with: ```winget install chezmoi```
-- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply aquapaka``` (Might need close and reopen powershell, or restart the pc for chezmoi command to be recognizable)
+- Close and reopen terminal for chezmoi command to be recognized.
+- Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply aquapaka --branch new-version-3```
+- If you are using Windows Terminal, you will notice the terminal theme changed immediately.
+![image](https://github.com/user-attachments/assets/48995749-d967-4ee3-b2cf-adce8bd76cb9)
+
 
 ### Install packages
 
-- After chezmoi apply the dotfiles, the chezmoi source folder could be found in ```%userprofile%/.local/share/chezmoi```, ```install-packages.ps1``` file can be found inside ```scripts``` folder
-- Edit ```install-packages.ps1```, comment out packages/apps that are not needed
-- Run ```install-packages.ps1``` script with **Powershell** to install nessesary packages (⚠️ Note: sometime installation could fail, keep re-run the script until all packages has been installed)
+- After chezmoi apply the dotfiles, the chezmoi source folder could be found in ```%userprofile%/.local/share/chezmoi```, ```install-packages.ps1``` file can be found inside ```scripts``` folder (⚠️Note: Windows Terminal is now default open zsh shell which we haven't installed yet so it will show error if you try to open Windows Terminal, let's open Windows Powershell instead)
+- Enable allow execute powershell script in windows settings:
+![image](https://github.com/user-attachments/assets/2b9c84f2-56d5-46f6-8ced-6e030ca5e47a)
+![image](https://github.com/user-attachments/assets/70a6666e-b4ff-4f03-8299-4fd5acb12797)
+- Edit ```install-packages.ps1```, comment out packages/apps that are not needed (All non-required packages are commented by default)
+- ⚠️ Note: If glazewm or zebar already installed, please uninstall them first before running the install script, this will make sure the versions are correct.
+- Run ```install-packages.ps1``` script with **Powershell** to install nessesary packages (⚠️ Note: sometime installation could fail, re-run the script to ensure all packages has been installed)
 
 ### Add New Environment Variables
 
@@ -167,7 +176,7 @@ Font need to be download and install manually *(Windows is planning to allows in
 
 ### Restart
 
-- After everything above are done, restart the PC one time to make sure all new program paths are registered.
+- After everything above are done, restart the PC one time to make sure all new program paths and fonts are registered.
 
 ----------------------------
 
@@ -175,17 +184,17 @@ Font need to be download and install manually *(Windows is planning to allows in
 
 ### Change MSYS2 home directory
 
-Edit /c/msys64/etc/nsswitch.conf
+Edit the "db_home"'s value to "windows" of file /c/msys64/etc/nsswitch.conf (file nsswitch.conf inside C:\msys64\etc)
 
 ```
 db_home: windows
 ```
 
-This will set windows user folder as default home directory
+This will set windows user folder as default home directory. Otherwise zsh won't see it config file from user's directory.
 
 ### Install Zsh
 
-Open **MSYS2 UCRT64** and run below command to install zsh
+Open **MSYS2 UCRT64** and run below command to install zsh (Tips: command can be pasted using middle mouse button)
 
 ```
 # Update pacman
@@ -194,11 +203,9 @@ pacman -Syu
 # Open MSYS2 Ucrt64 and install ZSH
 pacman -S zsh
 
-Open **MSYS2 UCRT64** and run below command to install zsh
-
 ```
 
-Open **Powershell**, from your user folder (Example: ```C:\Users\wasabi>```), run below command to install zsh themes and configs
+Open **Powershell**, from your user folder (Example: ```C:\Users\aquapaka>```), run below command to install zsh themes and configs
 
 ```
 # Install Theme: Powerlevel10k
@@ -207,7 +214,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./.config/zsh/t
 
 # Install Fast Syntax Highlighting Plugin
 
-git clone git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ./.config/zsh/plugins/fast-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ./.config/zsh/plugins/fast-syntax-highlighting
 
 # Install Autosuggestions Plugin
 
@@ -215,65 +222,45 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ./.config/zsh/plugins
 
 # Install History Substring Search Plugin
 
-git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zsh/plugins/zsh-history-substring-searchpacman -S zsh
+git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zsh/plugins/zsh-history-substring-search
 ```
 
-**Troubleshoot:** If git is not recognizable, try close and reopen powershell or check whether git is installed through running ``````install-packages.ps1``` or not.
+**Troubleshoot:** If git is not recognizable, try close and reopen powershell or check whether git is installed through running ```install-packages.ps1``` or not.
 
-### Install VS Code Theme
+### Install VS Code Extensions for Theming
 
-- Icons:
-  - [Gruvbox Material Icons](https://marketplace.visualstudio.com/items?itemName=navernoedenis.gruvbox-material-icons)
+- Icons: [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - *best icon pack in my opinion*
 - Themes:
-  - [Gruvbox](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)
-  - [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
-  - [Matchalk](https://marketplace.visualstudio.com/items?itemName=lucafalasco.matchalk)
-  - [Neon City](https://marketplace.visualstudio.com/items?itemName=lakshits11.neon-city)
-  - [Paper](https://marketplace.visualstudio.com/items?itemName=a5hk.paper)
-  - [Base 16 Tomorrow](https://marketplace.visualstudio.com/items?itemName=o4x.base16-tomorrow)
-  - [Shades of Purple](https://marketplace.visualstudio.com/items?itemName=ahmadawais.shades-of-purple)
-
+  - [Tinted VSCode](https://marketplace.visualstudio.com/items?itemName=TintedTheming.base16-tinted-themes) - *using by other themes*
+  - [Gruvbox Theme](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox) - *using by Wasabi theme*
 - ADDITIONAL: To change vscode UI Font, use this extension: [Fonted](https://marketplace.visualstudio.com/items?itemName=degreat.fonted)
 
-### Auto start Komorebi at windows start
+### Auto start GlazeWM & Zebar at windows start
 
-- Open **Task scheduler**
-- Choose **Create Basic Task...**
-- Enter any name for Komorebi task (example: "Komorebi") then press **Next**
-- Trigger: choose **When I log on** then press **Next**
-- Action: **Start a program** then press **Next**
-  - Program/script: paste in ```C:\Program Files\komorebi\bin\komorebic.exe```
-  - Add arguments: ```start --whkd```
-  - Press **Next**
-
-  ![komorebi-task-scheduler](rice-previews/komorebi-task-scheduler.png)
-- Tick **Open the Properties dialog for this task when I click Finish** then click **Finish**
-- Inside Properties window, set the following settings for each tab:
-  - General: enable **Run with highest privileges** (required for Komorebi could manages all windows)
-  - Conditions: disable/untick **everything** (including greyed out settings)
-  - Settings: disable/untick **Stop the task if it runs longer than**
-  - Click **OK** to save and we're good to go
-
-### Auto start Zebar at windows start
-
-- Copy ```start-zebar.bat``` from ```scripts``` folder
-- Press **Window + R** to open Run prompt and type in ```shell:startup``` and press **OK**, a startup folder will be opened
-- Paste ```start-zebar.bat``` in this startup folder
+- Just need to copy the GlazeWM shortcut.
+- Open Start Up folder by pressing **Windows + R** and type in ```shell:startup```
+- Paste the shortcut in here and we are done, you can also run GlazeWM now.
+- Zebar is open and close with GlazeWM.
 
 ### Optional Tweaks
 
+<!---
 - Disable windows 11 rounded corners:
   - Install windows 11 rounded corners setup: [win11-toggle-rounded-corners](https://github.com/oberrich/win11-toggle-rounded-corners)
-- Enable automatically hide the taskbar
+-->
+- Enable automatically hide the taskbar (for more vertical space).
 - Improve performance and reduce disk utilization for system with high amount of free RAM:
-  - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**
+  - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**.
 - Restore old context menu (Require restart):
-  - Open/Run ```scripts/Restore-old-context-menu.reg```
-- Fix terminal cursor glitching while typing:
+  - Open/Run ```scripts/Restore-old-context-menu.reg```.
+<!---
+- Fix terminal cursor glitching while typing: (This is only working with Alacritty, current version using Windows Terminal)
   - Run ```scripts/terminal-cursor-fix.sh```
   - Close then re-open terminal
-- Show 'Max cpu freq' in power plan setting, allow changing maximum cpu freqency to attempt lower temperature:
+-->
+- Show 'Max cpu freq' in power plan setting, allow changing maximum cpu freqency to attempt lower temperature and more stable machine **(Very useful, highly recommend for laptop)**:
   - Run ```scripts/show-cpu-frequency-power-plan-setting.ps1``` with **Powershell**
+  - Search for **"Edit Power Plan" > Change Plan Settings > Change advanced power settings > Processor power management > Maximum processor frequency** (Showing after running the script, change this to preferred frequency)
 
 ### Other information
 

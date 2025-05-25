@@ -6,82 +6,82 @@
 #  About   :  This file will configure and launch the rice.
 #
 
-avaiableThemes=("meimei" "tlinh" "mtram" "khanhoa" "khlinh" "shuri" "wasabi" "arcade")
+avaiableThemes=("aqua" "wasabi" "shuri")
 
 usage() {
   printf "
 Rice Script for apply a rice theme
 
 Usage:
-`basename $0`\t[meimei] \t Warming and caring
-\t[tlinh] \t Sweet and mysterious
-\t[mtram] \t Calming and peaceful
-\t[khanhoa] \t Joyful and adventurous
-\t[khlinh] \t Gentle and wise, truly exceptional
-\t[shuri] \t Radiant love for purple, deeply cherished soul
-\t[wasabi] \t Losing myself
-\t[arcade] \t WARNING! Only For Truest Gamer!! May hurt your eyes!!!
+`basename $0`\t[aqua]  \t A playful, mysterious girl with eyes like shimmering aqua, her movements graceful and quick, full of curiosity and charm
+\t[wasabi] \t Mysterious and alluring, with eyes like deep ocean blue and an aura of fire, she exudes both danger and enchantment
+\t[shuri] \t A gentle presence in shades of purple, like twilight’s soft embrace—quietly comforting, effortlessly lovely
 "
 }
 
-# Set alacritty colorscheme
-set_alacritty_config() {
-  echo "Setting alacritty config..."
-  cat ./rices/$theme/alacritty/colors.toml > ~/AppData/Roaming/alacritty/colors.toml
-  cat ./rices/$theme/alacritty/fonts.toml > ~/AppData/Roaming/alacritty/fonts.toml
+# Set zebar config
+set_zebar_theme() {
+  echo "Applying zebar theme..."
+  # Replace ~/.glzr/zebar/dotifle-bar folder with the one in the rice
+  rm -rf ~/.glzr/zebar/dotfile-bar
+  cp -r ./rices/$theme/dotfile-bar ~/.glzr/zebar/dotfile-bar
+  echo "✅ Applying zebar theme applied!"
 }
 
-# Set desktop wallpaper
-set_desktop_wallpaper() {
-  powershell ./wackground.ps1 ./rices/$theme/wallpapers --set-random
+# Set glazewm config
+set_glazewm_config() {
+  echo "Applying GlazeWM border color..."
+  SETTING_FILE_PATH=$USERPROFILE\\.glzr\\glazewm\\config.yaml
+  RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
+  yq ".window_effects.focused_window.border.color = \"$(jq -r '.glazewmConfig.focusedWindowsColor' $RICE_SETTING_FILE_PATH)\" | .window_effects.other_windows.border.color = \"$(jq -r '.glazewmConfig.otherWindowsColor' $RICE_SETTING_FILE_PATH)\"" $SETTING_FILE_PATH > tmp.yaml && mv tmp.yaml $SETTING_FILE_PATH
+  # Restart glazewm
+  echo "Restarting GlazeWM..."
+  glazewm command wm-exit > /dev/null
+  glazewm > /dev/null 2>&1
+  echo "✅ GlazeWM theme applied!"
 }
 
 # Set VSCode theme
 set_vscode_theme() {
-  echo "Setting vscode theme..."
-  echo "$(jq -s '.[0] * .[1]' ~/AppData/Roaming/Code/User/settings.json ./rices/$theme/vscode-theme-settings.json)" > ~/AppData/Roaming/Code/User/settings.json
+  echo "Applying VSCode theme..."
+  echo "$(jq -s '.[0] * .[1]' ~/AppData/Roaming/Code/User/settings.json ./rices/$theme/vscode-theme-settings.json)" > tmp.json && mv tmp.json ~/AppData/Roaming/Code/User/settings.json
+  echo "✅ VSCode theme applied!"
 }
 
-# Set Zebar theme
-set_zebar_theme() {
-  echo "Setting zebar theme..."
-  cat ./rices/$theme/zebar-config.yaml > ~/.glzr/zebar/config.yaml
-  echo "Reload zebar..."
-  powershell 'taskkill /f /im Zebar.exe | Out-Null;'
-  powershell '$monitors = zebar monitors;  foreach ($monitor in $monitors) { Start-Process -WindowStyle Hidden -FilePath "zebar" -ArgumentList "open bar --args $monitor" };'
-}
-
-# Set komorebi theme
-set_komorebi_theme() {
-  echo "Setting komorebi theme..."
-  echo "$(jq -s '.[0] * .[1]' ~/komorebi.json ./rices/$theme/komorebi-theme.json)" > ~/komorebi.json
-  komorebic stop
-  komorebic start >/dev/null
-}
-
-# Toggle rounded corners
-toggle_rounded_corners() {
-  echo "Changing windows corners..."
-  option=$(<./rices/$theme/rounded-corners-flag)
-  win11-toggle-rounded-corners $option >/dev/null
+# Set windows terminal theme
+set_windows_terminal_theme() {
+  echo "Applying windows terminal theme..."
+  SETTING_FILE_PATH=$USERPROFILE\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json
+  RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
+  jq ".profiles.defaults.colorScheme = input.windowsTerminalTheme" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
+  jq ".profiles.defaults.font += input.windowsTerminalFont" $SETTING_FILE_PATH $RICE_SETTING_FILE_PATH > tmp.json && mv tmp.json $SETTING_FILE_PATH
+  echo "✅ Windows terminal theme applied!"
 }
 
 # Change windows light/dark mode
 change_windows_lightdark_mode() {
-  echo "Changing windows theme..."
-  option=$(<./rices/$theme/windows-theme)
-  if [ $option == dark ]
+  echo "Changing windows color scheme..."
+  WINDOWS_THEME=$(jq -r '.windowsTheme' ./rices/$theme/settings.json)
+  if [ $WINDOWS_THEME == dark ]
     then powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '0' -Type Dword -Force | Out-Null";
          powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '0' -Type Dword -Force | Out-Null"
-  elif [ $option == light ]
+  elif [ $WINDOWS_THEME == light ]
     then powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name SystemUsesLightTheme -Value '1' -Type Dword -Force | Out-Null";
          powershell "New-ItemProperty -Path HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize -Name AppsUseLightTheme -Value '1' -Type Dword -Force | Out-Null"
   else
     echo "Error: windows-theme must be light or dark"
     return 1
   fi
-  echo "Reloading explorer..."
+  echo "Restart explorer... (⚠️Noticed bug: Taskbar might take sometime to show up)"
   powershell "taskkill /F /IM explorer.exe | Out-Null; start explorer"
+  echo "✅ Windows color scheme changed!"
+}
+
+# Set desktop wallpaper
+set_desktop_wallpaper() {
+  echo "Changing desktop wallpaper..."
+  powershell ./wackground.ps1 ./rices/$theme/wallpapers --set-random
+  echo "✅ Desktop wallpaper changed!"
 }
 
 # Goes to this script location first
@@ -90,18 +90,19 @@ cd "$parent_path"
 
 for theme in "${avaiableThemes[@]}"; do
   if [[ "$1" == "$theme" ]]; then
-    echo "Applying $theme theme..."
+    echo "⭐ Applying $theme theme ⭐"
+    echo " "
 
     # # Apply configs
-    set_desktop_wallpaper
-    set_alacritty_config
-    set_vscode_theme
     set_zebar_theme
-    set_komorebi_theme
-    # toggle_rounded_corners
-    change_windows_lightdark_mode
+    set_glazewm_config
+    set_vscode_theme
+    set_windows_terminal_theme
+    # change_windows_lightdark_mode # Disabled, currently too buggy
+    set_desktop_wallpaper
 
-    echo "Completed!"
+    echo " "
+    echo "⭐ Theme changing completed! ⭐"
     exit 0
   fi
 done
