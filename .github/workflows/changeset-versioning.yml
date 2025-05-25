@@ -10,7 +10,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     name: Release
-    if: github.repository == 'aquapaka/dotfiles'
+    if: github.repository == 'jade-tam/dotfiles'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
