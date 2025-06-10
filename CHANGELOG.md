@@ -1,5 +1,11 @@
 # aquapaka-dotfiles
 
+## 3.0.1
+
+### Patch Changes
+
+- 7b2b1f5: feat: use relative width for bar
+
 ## 3.0.0
 
 ### Major Changes
