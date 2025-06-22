@@ -36,26 +36,26 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 
 ## 🎨 Themes
 
-🚧 *under construction*
+ℹ️Note: This dotfiles are configured specifically for my 1440p screen, so things might appear larger on smaller screens. I suggest using my dotfiles as a base and customizing it to fit your specific needs.
+
+| ✨ wasabi |
+| :---: |
+| Mysterious and alluring |
+|![wasabi-1](rice-previews/wasabi-1.png)|
+|![wasabi-2](rice-previews/wasabi-2.png)|
+
+| ✨ aqua |
+| :---: |
+| Full of curiosity and charm |
+|![aqua-1](rice-previews/aqua-1.png)|
+|![aqua-2](rice-previews/aqua-2.png)|
+
+| ✨ shuri |
+| :---: |
+| A gentle presence in shades of purple |
+|![shuri-1](rice-previews/shuri-1.png)|
+|![shuri-2](rice-previews/shuri-2.png)|
 <!--
-| ✨ meimei |
-| :---: |
-| Warming and caring |
-|![meimei-1](rice-previews/meimei-1.png)|
-|![meimei-2](rice-previews/meimei-2.png)|
-
-| ✨ tlinh |
-| :---: |
-| Sweet and mysterious |
-|![tlinh-1](rice-previews/tlinh-1.png)|
-|![tlinh-2](rice-previews/tlinh-2.png)|
-
-| ✨ mtram |
-| :---: |
-| Calming and peaceful |
-|![mtram-1](rice-previews/mtram-1.png)|
-|![mtram-2](rice-previews/mtram-2.png)|
-
 | 🕹️ arcade |
 | :---: |
 | ⚠️ WARNING! Only For Truest Gamer!! May hurt your eyes!!! |
@@ -154,7 +154,6 @@ Font need to be download and install manually *(Windows is planning to allows in
 - If you are using Windows Terminal, you will notice the terminal theme changed immediately.
 ![image](https://github.com/user-attachments/assets/48995749-d967-4ee3-b2cf-adce8bd76cb9)
 
-
 ### Install packages
 
 - After chezmoi apply the dotfiles, the chezmoi source folder could be found in ```%userprofile%/.local/share/chezmoi```, ```install-packages.ps1``` file can be found inside ```scripts``` folder (⚠️Note: Windows Terminal is now default open zsh shell which we haven't installed yet so it will show error if you try to open Windows Terminal, let's open Windows Powershell instead)
@@ -248,6 +247,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
   - Install windows 11 rounded corners setup: [win11-toggle-rounded-corners](https://github.com/oberrich/win11-toggle-rounded-corners)
 -->
 - Enable automatically hide the taskbar (for more vertical space).
+- Transparent VSCode window: <https://marketplace.visualstudio.com/items?itemName=s-nlf-fh.glassit>
 - Improve performance and reduce disk utilization for system with high amount of free RAM:
   - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**.
 - Restore old context menu (Require restart):
