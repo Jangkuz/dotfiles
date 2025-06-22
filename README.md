@@ -231,7 +231,9 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
 - Themes:
   - [Tinted VSCode](https://marketplace.visualstudio.com/items?itemName=TintedTheming.base16-tinted-themes) - *using by other themes*
   - [Gruvbox Theme](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox) - *using by Wasabi theme*
-- ADDITIONAL: To change vscode UI Font, use this extension: [Fonted](https://marketplace.visualstudio.com/items?itemName=degreat.fonted)
+- ADDITIONAL:
+  - To change vscode UI Font, use this extension: [Fonted](https://marketplace.visualstudio.com/items?itemName=degreat.fonted)
+  - To make VSCode window transparent: <https://marketplace.visualstudio.com/items?itemName=s-nlf-fh.glassit>
 
 ### Auto start GlazeWM & Zebar at windows start
 
@@ -247,7 +249,6 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ./.config/zs
   - Install windows 11 rounded corners setup: [win11-toggle-rounded-corners](https://github.com/oberrich/win11-toggle-rounded-corners)
 -->
 - Enable automatically hide the taskbar (for more vertical space).
-- Transparent VSCode window: <https://marketplace.visualstudio.com/items?itemName=s-nlf-fh.glassit>
 - Improve performance and reduce disk utilization for system with high amount of free RAM:
   - Run ```scripts/high-ram-tuning.ps1``` with **Powershell**.
 - Restore old context menu (Require restart):
