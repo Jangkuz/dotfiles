@@ -56,7 +56,7 @@
             case "ethernet":
               return (
                 <>
-                  <span className="icon ethernet-icon green"></span>
+                  <span className="icon ethernet-icon green">󰈀</span>
                   <span className="green">Connected</span>
                 </>
               );
@@ -65,31 +65,31 @@
                 return (
                   <>
                     <span className="icon wifi-icon green"></span>
-                    <span className="green">◦◦◦◦</span>
+                    <span className="green"></span>
                   </>
                 );
               } else if (networkOutput.defaultGateway?.signalStrength >= 65) {
                 return (
                   <>
                     <span className="icon wifi-icon yellow"></span>
-                    <span className="yellow">◦◦◦</span>
-                    <span className="black">◦</span>
+                    <span className="yellow"></span>
+                    <span className="black"></span>
                   </>
                 );
               } else if (networkOutput.defaultGateway?.signalStrength >= 40) {
                 return (
                   <>
                     <span className="icon wifi-icon yellow"></span>
-                    <span className="yellow">◦◦</span>
-                    <span className="black">◦◦</span>
+                    <span className="yellow"></span>
+                    <span className="black"></span>
                   </>
                 );
               } else if (networkOutput.defaultGateway?.signalStrength >= 25) {
                 return (
                   <>
                     <span className="icon wifi-icon red"></span>
-                    <span className="red">◦</span>
-                    <span className="black">◦◦◦</span>
+                    <span className="red"></span>
+                    <span className="black"></span>
                   </>
                 );
               } else {
@@ -97,7 +97,7 @@
                   <>
                     <span className="icon wifi-icon red"></span>
                     <span className="red"></span>
-                    <span className="black">◦◦◦◦</span>
+                    <span className="black"></span>
                   </>
                 );
               }
@@ -108,12 +108,12 @@
 
         // Get icon to show for how much of the battery is charged.
         function getBatteryIcon(batteryOutput) {
-          if (batteryOutput.chargePercent > 80) return "";
-          if (batteryOutput.chargePercent > 60) return "";
-          if (batteryOutput.chargePercent > 50) return "";
-          if (batteryOutput.chargePercent > 40) return "";
-          if (batteryOutput.chargePercent > 20) return "";
-          return "";
+          if (batteryOutput.chargePercent > 80) return "󰁹";
+          if (batteryOutput.chargePercent > 60) return "󰂁";
+          if (batteryOutput.chargePercent > 50) return "󰂀";
+          if (batteryOutput.chargePercent > 40) return "󰁿";
+          if (batteryOutput.chargePercent > 20) return "󰁾";
+          return "󰁺";
         }
         // function getBatteryIcon(batteryOutput) {
         //   if (batteryOutput.chargePercent > 90)
@@ -129,13 +129,13 @@
 
         function getAudioIcon(volume) {
           if (volume > 20) {
-            return <span className="icon audio-icon cyan">墳</span>;
+            return <span className="icon audio-icon cyan"></span>;
           } else if (volume > 10) {
-            return <span className="icon audio-icon cyan">奔</span>;
+            return <span className="icon audio-icon cyan"></span>;
           } else if (volume > 0) {
-            return <span className="icon audio-icon cyan">奄</span>;
+            return <span className="icon audio-icon cyan"></span>;
           } else {
-            return <span className="icon audio-icon red">婢</span>;
+            return <span className="icon audio-icon red"></span>;
           }
         }
 
@@ -147,25 +147,25 @@
             case "clear_night":
               return <span className="icon weather-icon yellow">☽</span>;
             case "cloudy_day":
-              return <span className="icon weather-icon white">☁</span>;
+              return <span className="icon weather-icon white"></span>;
             case "cloudy_night":
-              return <span className="icon weather-icon white">☁</span>;
+              return <span className="icon weather-icon white"></span>;
             case "light_rain_day":
-              return <span className="icon weather-icon blue">☂</span>;
+              return <span className="icon weather-icon blue"></span>;
             case "light_rain_night":
-              return <span className="icon weather-icon blue">☂</span>;
+              return <span className="icon weather-icon blue"></span>;
             case "heavy_rain_day":
-              return <span className="icon weather-icon blue">☔</span>;
+              return <span className="icon weather-icon blue"></span>;
             case "heavy_rain_night":
-              return <span className="icon weather-icon blue">☔</span>;
+              return <span className="icon weather-icon blue"></span>;
             case "snow_day":
-              return <span className="icon weather-icon white">☃</span>;
+              return <span className="icon weather-icon white"></span>;
             case "snow_night":
-              return <span className="icon weather-icon white">☃</span>;
+              return <span className="icon weather-icon white"></span>;
             case "thunder_day":
-              return <span className="icon weather-icon cyan">⚡</span>;
+              return <span className="icon weather-icon cyan"></span>;
             case "thunder_night":
-              return <span className="icon weather-icon cyan">⚡</span>;
+              return <span className="icon weather-icon cyan"></span>;
           }
         }
 
@@ -218,11 +218,11 @@
               {output.host && (
                 <>
                   <div className="os">
-                    <span className="icon os-icon yellow">⭐</span>
+                    <span className="icon os-icon yellow"></span>
                     <span className="info">{output.host.hostname}</span>
                   </div>
                   <div className="uptime">
-                    <span className="icon uptime-icon magenta">⌛</span>
+                    <span className="icon uptime-icon magenta">󰔚</span>
                     <span className="info">
                       {formatUptime(output.host.uptime)}
                     </span>
@@ -233,7 +233,7 @@
               {output.media?.currentSession && (
                 <>
                   <div className="media">
-                    <span className="icon media-icon cyan">♫</span>
+                    <span className="icon media-icon cyan"></span>
                     <span className="info">
                       {output.media.currentSession.title}
                     </span>
@@ -258,10 +258,10 @@
                       key={workspace.name}
                     >
                       {workspace.hasFocus
-                        ? "❤"
+                        ? "󰫢"
                         : workspace.children.length
-                        ? "●"
-                        : "◯"}
+                        ? ""
+                        : ""}
                     </button>
                   ))}
                 </div>
@@ -296,14 +296,14 @@
 
               {output.cpu && (
                 <div className="cpu">
-                  <span className="icon cpu-icon red">✂</span>
+                  <span className="icon cpu-icon red"></span>
                   <span className="info">{Math.round(output.cpu.usage)}%</span>
                 </div>
               )}
 
               {output.memory && (
                 <div className="memory">
-                  <span className="icon memory-icon green">☷</span>
+                  <span className="icon memory-icon green"></span>
                   <span className="info">
                     {bytesToGigabytes(output.memory.usedMemory)} GBs
                   </span>
@@ -315,7 +315,7 @@
                   {output.battery.state === "full" ? (
                     <span className="icon full-icon green">✔</span>
                   ) : output.battery.state === "charging" ? (
-                    <span className="icon charging-icon blue">⚡</span>
+                    <span className="icon charging-icon blue">󱐋</span>
                   ) : (
                     ""
                   )}
@@ -350,7 +350,7 @@
 
               {output.date && (
                 <div className="date">
-                  <span className="icon date-icon magenta">⌚</span>
+                  <span className="icon date-icon magenta">󰅐</span>
                   <span className="info">{output.date?.formatted}</span>
                 </div>
               )}

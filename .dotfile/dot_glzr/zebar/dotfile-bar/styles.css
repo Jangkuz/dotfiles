@@ -4,35 +4,35 @@
  */
 
 .red {
-  color: #FB4934;
+  color: #c79987;
 }
 
 .blue {
-  color: #83A598;
+  color: #a5aad4;
 }
 
 .green {
-  color: #B8BB26;
+  color: #acc79b;
 }
 
 .yellow {
-  color: #FABD2F;
+  color: #c7c691;
 }
 
 .black {
-  color: #928374;
+  color: #655978;
 }
 
 .cyan {
-  color: #8EC07C;
+  color: #9bc7bf;
 }
 
 .magenta {
-  color: #D3869B;
+  color: #c594ff;
 }
 
 .white {
-  color: #EBDBB2;
+  color: #ebdcff;
 }
 
 html,
@@ -42,16 +42,16 @@ body,
 }
 
 body {
-  color: #EBDBB2;
-  font-family: "Pixel Code","Pixelcraft Nerd Font", ui-monospace, monospace;
-  font-size: 13.5pt;
+  color: #ebdcff;
+  font-family: "Monofur Nerd Font Mono", ui-monospace, monospace;
+  font-size: 15pt;
   overflow: hidden;
 }
 
 #root {
-  border: 1px solid #B8BB26;
+  border: 1px solid #c594ff;
   border-radius: 10px;
-  background: rgb(40 40 40 / 90%);
+  background: rgb(43 33 60 / 90%);
 }
 
 .app {
@@ -60,6 +60,7 @@ body {
   align-items: center;
   height: 100%;
   padding: 0px 16px;
+  margin-top: -3px;
 }
 
 .left,
@@ -67,7 +68,6 @@ body {
 .right {
   display: flex;
   align-items: center;
-  padding-bottom: 4px;
 }
 
 .left {
@@ -108,14 +108,17 @@ body {
 }
 
 .os-icon {
+  font-size: 1.6rem;
 }
 
 .uptime-icon {
   padding-left: 20px;
+  font-size: 1.7rem;
 }
 
 .media-icon {
   padding-left: 20px;
+  font-size: 1.5rem;
 }
 
 .tiling-direction-icon {
@@ -127,31 +130,37 @@ body {
 
 .ethernet-icon {
   padding-left: 12px;
-  font-size: 1.4rem;
   transform: translate(4px, 2px);
+  font-size: 1.8rem;
+  margin-top: -4px;
 }
 
 .wifi-icon {
   padding-left: 12px;
-  font-size: 1.6rem;
   transform: translate(6px, 3px);
+  font-size: 1.6rem;
+  margin-top: -4px;
 }
 
 .cpu-icon {
   padding-left: 24px;
   transform: translate(0px, -1px);
+  font-size: 1.8rem;
+  margin-top: 2px;
+  margin-right: 6px;
 }
 
 .memory-icon {
   padding-left: 17px;
-  font-size: 1.5rem;
   transform: translate(6px, 0px);
+  font-size: 2rem;
 }
 
 .battery-icon {
   padding-left: 5px;
-  font-size: 1.4rem;
   transform: translate(6px, 2px);
+  margin-top: -4px;
+  margin-right: 14px;
 }
 
 .battery {
@@ -162,7 +171,7 @@ body {
 .charging-icon {
   z-index: 100;
   position: absolute;
-  right: 26px;
+  right: 21px;
   bottom: -2px;
   filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1));
 }
@@ -171,52 +180,53 @@ body {
   font-size: 0.9rem;
   z-index: 100;
   position: absolute;
-  right: 29px;
+  right: 21px;
   bottom: 0px;
   filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 1));
 }
 
 .audio-icon {
   padding-left: 0px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   transform: translate(9px, 1.5px);
+  margin-top: -6px;
 }
 
 .weather-icon {
   padding-left: 20px;
   transform: translate(1px, -1px);
+  font-size: 1.6rem;
+  margin-top: 2px;
 }
 
 .date-icon {
   padding-left: 16px;
   transform: translate(2px, 0px);
+  font-size: 1.8rem;
 }
 
 .workspaces {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
 
 .workspace {
+  font-size: 28pt;
   background: none;
   margin-right: 4px;
-  padding: 5px 8px;
-  color: #928374;
+  padding: 0px 8px;
+  color: #4d4160;
   border: none;
   border-radius: 2px;
   cursor: pointer;
 
   &.has-child {
-    color: #EBDBB2;
-  }
-
-  &.focused {
-    padding: 4px 8px;
-    font-size: 24px;
+    color: #ebdcff;
   }
 
   &.focused,
   &:hover {
-    color: #FB4934;
+    color: #c79987;
   }
 }
