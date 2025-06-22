@@ -1,5 +1,11 @@
 # aquapaka-dotfiles
 
+## 3.1.1
+
+### Patch Changes
+
+- b1a6044: feat: no longer centered and show on top float windows, prevent some buggy case
+
 ## 3.1.0
 
 ### Minor Changes
