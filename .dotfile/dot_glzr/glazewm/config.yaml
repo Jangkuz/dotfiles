@@ -66,7 +66,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: "#c594ff"
+      color: "#b8bb26"
     # Remove the title bar from the window's frame. Note that this can
 
     # cause rendering issues for some applications.
@@ -85,7 +85,7 @@ window_effects:
   other_windows:
     border:
       enabled: true
-      color: "#2b213c"
+      color: "#282828"
     hide_title_bar:
       enabled: false
     corner_style:
@@ -175,21 +175,21 @@ window_rules:
         # Ignore fullscreen games.
 
         window_class: {regex: ".*?"}
-  - commands: ["move --workspace 1", "focus --workspace 1"]
-    match:
-      - window_process: {regex: "WindowsTerminal"}
-  - commands: ["move --workspace 2", "focus --workspace 2"]
-    match:
-      - window_process: {regex: "msedge|brave|chrome"}
-  - commands: ["move --workspace 3", "focus --workspace 3"]
-    match:
-      - window_process: {regex: "Code|Resolve"}
-  - commands: ["move --workspace 4", "focus --workspace 4"]
-    # [4] Folder and files workspaces
+  # - commands: ["move --workspace 1", "focus --workspace 1"]
+  #   match:
+  #     - window_process: {regex: "WindowsTerminal"}
+  # - commands: ["move --workspace 2", "focus --workspace 2"]
+  #   match:
+  #     - window_process: {regex: "msedge|brave|chrome"}
+  # - commands: ["move --workspace 3", "focus --workspace 3"]
+  #   match:
+  #     - window_process: {regex: "Code|Resolve"}
+  # - commands: ["move --workspace 4", "focus --workspace 4"]
+  #   # [4] Folder and files workspaces
 
-    match:
-      - window_process: {regex: ""}
-        window_title: {regex: ".*? - File Explorer"}
+  #   match:
+  #     - window_process: {regex: ""}
+  #       window_title: {regex: ".*? - File Explorer"}
   - commands: ["move --workspace 5"]
     match:
       - window_process: {regex: "Discord"}

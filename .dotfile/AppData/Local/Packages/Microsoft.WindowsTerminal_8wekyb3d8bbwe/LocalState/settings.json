@@ -57,13 +57,13 @@
   "profiles": {
     "defaults": {
       "adjustIndistinguishableColors": "indexed",
-      "colorScheme": "Stella",
+      "colorScheme": "Gruvbox Dark Medium",
       "cursorShape": "vintage",
       "elevate": true,
       "font": {
-        "cellHeight": "1.1",
-        "face": "Monofur Nerd Font Mono",
-        "size": 17
+        "cellHeight": "1.2",
+        "face": "Pixel Code, Pixelcraft Nerd Font",
+        "size": 13.5
       },
       "opacity": 90,
       "padding": "16",
