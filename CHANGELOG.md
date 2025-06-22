@@ -1,5 +1,15 @@
 # aquapaka-dotfiles
 
+## 3.1.0
+
+### Minor Changes
+
+- 3912241: feat: modify dotfiles for glazewm 3.9.0 and zebar 3.1.1
+
+### Patch Changes
+
+- 95b1d3d: feat: add theme preview for aqua, wasabi and shuri
+
 ## 3.0.1
 
 ### Patch Changes
