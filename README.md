@@ -152,7 +152,6 @@ Font need to be download and install manually *(Windows is planning to allows in
 - Close and reopen terminal for chezmoi command to be recognized.
 - Initialize chezmoi and apply the dotfiles with: ```chezmoi init --apply jade-tam```
 - If you are using Windows Terminal, you will notice the terminal theme changed immediately.
-![image](https://github.com/user-attachments/assets/48995749-d967-4ee3-b2cf-adce8bd76cb9)
 
 ### Install packages
 
