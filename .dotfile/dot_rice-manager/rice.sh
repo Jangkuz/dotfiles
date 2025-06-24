@@ -25,7 +25,11 @@ set_zebar_theme() {
   # Replace ~/.glzr/zebar/dotifle-bar folder with the one in the rice
   rm -rf ~/.glzr/zebar/dotfile-bar
   cp -r ./rices/$theme/dotfile-bar ~/.glzr/zebar/dotfile-bar
-  echo "✅ Applying zebar theme applied!"
+  # Restart Zebar
+  echo "Restarting Zebar..."
+  taskkill -IM zebar.exe -F > /dev/null 2>&1
+  start zebar > /dev/null 2>&1 &
+  echo "✅ Zebar theme applied!"
 }
 
 # Set glazewm config
@@ -34,10 +38,8 @@ set_glazewm_config() {
   SETTING_FILE_PATH=$USERPROFILE\\.glzr\\glazewm\\config.yaml
   RICE_SETTING_FILE_PATH=./rices/$theme/settings.json
   yq ".window_effects.focused_window.border.color = \"$(jq -r '.glazewmConfig.focusedWindowsColor' $RICE_SETTING_FILE_PATH)\" | .window_effects.other_windows.border.color = \"$(jq -r '.glazewmConfig.otherWindowsColor' $RICE_SETTING_FILE_PATH)\"" $SETTING_FILE_PATH > tmp.yaml && mv tmp.yaml $SETTING_FILE_PATH
-  # Restart glazewm
-  echo "Restarting GlazeWM..."
-  glazewm command wm-exit > /dev/null
-  glazewm > /dev/null 2>&1
+  echo "Reload GlazeWM configs..."
+  glazewm command wm-reload-config > /dev/null
   echo "✅ GlazeWM theme applied!"
 }
 
@@ -94,15 +96,16 @@ for theme in "${avaiableThemes[@]}"; do
     echo " "
 
     # # Apply configs
-    set_zebar_theme
-    set_glazewm_config
-    set_vscode_theme
-    set_windows_terminal_theme
-    # change_windows_lightdark_mode # Disabled, currently too buggy
     set_desktop_wallpaper
+    set_windows_terminal_theme
+    set_zebar_theme
+    set_vscode_theme
+    set_glazewm_config
+    # change_windows_lightdark_mode # Disabled, currently too buggy
 
     echo " "
     echo "⭐ Theme changing completed! ⭐"
+
     exit 0
   fi
 done

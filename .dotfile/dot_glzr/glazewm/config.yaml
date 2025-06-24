@@ -4,26 +4,18 @@ general:
   # script or launching another application.
 
   # Example: The below command launches Zebar.
-  startup_commands: [
+  startup_commands:
+    [
       "shell-exec zebar",
-      "move --workspace 2
-      ",
-      "move --workspace 3
-      ",
-      "move --workspace 4
-      ",
-      "move --workspace 5
-      ",
-      "move --workspace 6
-      ",
-      "move --workspace 7
-      ",
-      "move --workspace 8
-      ",
-      "move --workspace 9
-      ",
-      "move --workspace 0
-      ",
+      "move --workspace 2 ",
+      "move --workspace 3 ",
+      "move --workspace 4 ",
+      "move --workspace 5 ",
+      "move --workspace 6 ",
+      "move --workspace 7 ",
+      "move --workspace 8 ",
+      "move --workspace 9 ",
+      "move --workspace 0 ",
       "move --workspace 1",
     ]
   # Commands to run just before the WM is shutdown.
@@ -59,7 +51,6 @@ general:
 
   # but has stability issues with some apps.
   hide_method: "cloak"
-
   # Affects which windows get shown in the native Windows taskbar. Has no
   # effect if `hide_method: 'hide'`.
   # - 'true': Show all windows (regardless of workspace).
@@ -106,16 +97,13 @@ window_effects:
       # Allowed values: 'square', 'rounded', 'small_rounded'.
 
       style: "square"
-
     # Change the transparency of the window.
     transparency:
       enabled: false
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: "95%"
-
   # Visual effects to apply to non-focused windows.
-
   other_windows:
     border:
       enabled: true
@@ -128,7 +116,6 @@ window_effects:
     transparency:
       enabled: false
       opacity: "0%"
-
 window_behavior:
   # New windows are created in this state whenever possible.
 
@@ -219,19 +206,19 @@ window_rules:
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
       - window_process: { regex: "WindowsTerminal" }
-  # - commands: ["move --workspace 2", "focus --workspace 2"]
-  #   match:
-  #     - window_process: {regex: "msedge|brave|chrome"}
-  # - commands: ["move --workspace 3", "focus --workspace 3"]
-  #   match:
-  #     - window_process: {regex: "Code|Resolve"}
-  # - commands: ["move --workspace 4", "focus --workspace 4"]
-  #   # [4] Folder and files workspaces
-
   #   match:
   #     - window_process: {regex: ""}
   #       window_title: {regex: ".*? - File Explorer"}
   - commands: ["move --workspace 5"]
+    # - commands: ["move --workspace 2", "focus --workspace 2"]
+    #   match:
+    #     - window_process: {regex: "msedge|brave|chrome"}
+    # - commands: ["move --workspace 3", "focus --workspace 3"]
+    #   match:
+    #     - window_process: {regex: "Code|Resolve"}
+    # - commands: ["move --workspace 4", "focus --workspace 4"]
+    #   # [4] Folder and files workspaces
+
     match:
       - window_process: { regex: "Discord" }
   - commands: ["move --workspace 7"]
