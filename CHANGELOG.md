@@ -1,5 +1,13 @@
 # aquapaka-dotfiles
 
+## 3.1.3
+
+### Patch Changes
+
+- bcf65cd: feat: initialize all workspace at start
+- 5697767: feat: use padding and dock to edge feature for the bar
+- 39f565a: feat: HUGE improment for rice script, zebar no longer fail to start, glazewm reload without apps being hidden
+
 ## 3.1.2
 
 ### Patch Changes
