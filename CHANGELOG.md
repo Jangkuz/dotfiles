@@ -1,5 +1,12 @@
 # aquapaka-dotfiles
 
+## 3.1.2
+
+### Patch Changes
+
+- 320e020: feat: update zebar npm package used in template to 3
+- 6d257c3: feat: add more glazewm config, disable empty workspace
+
 ## 3.1.1
 
 ### Patch Changes
