@@ -176,6 +176,12 @@ workspaces:
   - name: "0"
     keep_alive: true
     bind_to_monitor: 1
+  - name: "2ndMonitorFix"
+    keep_alive: true
+    bind_to_monitor: 0
+  - name: "3ndMonitorFix"
+    keep_alive: true
+    bind_to_monitor: 2
 window_rules:
   - commands: ["ignore"]
     match:
