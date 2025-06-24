@@ -38,6 +38,11 @@ general:
 
   # but has stability issues with some apps.
   hide_method: "cloak"
+
+  # Affects which windows get shown in the native Windows taskbar. Has no
+  # effect if `hide_method: 'hide'`.
+  # - 'true': Show all windows (regardless of workspace).
+  # - 'false': Only show windows from the currently shown workspaces.
   show_all_in_taskbar: true
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
@@ -80,6 +85,14 @@ window_effects:
       # Allowed values: 'square', 'rounded', 'small_rounded'.
 
       style: "square"
+
+    # Change the transparency of the window.
+    transparency:
+      enabled: false
+      # Can be something like '95%' or '0.95' for slightly transparent windows.
+      # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
+      opacity: "95%"
+
   # Visual effects to apply to non-focused windows.
 
   other_windows:
@@ -91,6 +104,10 @@ window_effects:
     corner_style:
       enabled: false
       style: "square"
+    transparency:
+      enabled: false
+      opacity: '0%'
+
 window_behavior:
   # New windows are created in this state whenever possible.
 
@@ -118,11 +135,11 @@ window_behavior:
       shown_on_top: true
 workspaces:
   # Empty workspace for leftmost screen to prevent error
-  - name: "Empty"
-    keep_alive: false
-    bind_to_monitor: 0
+  # - name: "Empty"
+  #   keep_alive: false
+  #   bind_to_monitor: 0
   - name: "1"
-    keep_alive: false
+    keep_alive: true
     bind_to_monitor: 1
   - name: "2"
     keep_alive: true
@@ -155,32 +172,35 @@ window_rules:
   - commands: ["ignore"]
     match:
       # Ignores any Zebar windows.
-      - window_process: {equals: "zebar"}
-      - window_title: {regex: "[Pp]icture.in.[Pp]icture"}
+      - window_process: { equals: "zebar" }
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         # Ignores picture-in-picture windows for browsers.
 
-        window_class: {regex: "Chrome_WidgetWin_1|MozillaDialogClass"}
-      - window_process: {equals: "PowerToys"}
+        window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      - window_process: { equals: "PowerToys" }
         # Ignore rules for various 3rd-party apps.
 
-        window_class: {regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]'}
-      - window_process: {equals: "PowerToys"}
-        window_title: {regex: ".*? - Peek"}
-      - window_process: {equals: "Lively"}
-        window_class: {regex: "HwndWrapper"}
-      - window_title: {equals: "Command Palette"}
-      - window_title: {regex: "New Document|Color"}
+        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_process: { equals: "PowerToys" }
+        window_title: { regex: ".*? - Peek" }
+      - window_process: { equals: "Lively" }
+        window_class: { regex: "HwndWrapper" }
+      - window_title: { equals: "Command Palette" }
+      - window_title: { regex: "New Document|Color" }
         # Ignores photoshop panels and Davinci Resolve windows.
-      - window_process: {regex: "VALORANT-Win64-Shipping|League of Legends|FPSAimTrainer-Win64-Shipping|csgo|javaw|DeadByDaylight-Win64-Shipping"}
+      - window_process:
+          {
+            regex: "VALORANT-Win64-Shipping|League of Legends|FPSAimTrainer-Win64-Shipping|csgo|javaw|DeadByDaylight-Win64-Shipping",
+          }
         # Ignore fullscreen games.
 
-        window_class: {regex: ".*?"}
+        window_class: { regex: ".*?" }
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
-      - window_process: {regex: "WindowsTerminal"}
+      - window_process: { regex: "WindowsTerminal" }
   # - commands: ["move --workspace 2", "focus --workspace 2"]
   #   match:
-  #     - window_process: {regex: "msedge|brave|chrsqsome"}
+  #     - window_process: {regex: "msedge|brave|chrome"}
   # - commands: ["move --workspace 3", "focus --workspace 3"]
   #   match:
   #     - window_process: {regex: "Code|Resolve"}
@@ -192,20 +212,20 @@ window_rules:
   #       window_title: {regex: ".*? - File Explorer"}
   - commands: ["move --workspace 5"]
     match:
-      - window_process: {regex: "Discord"}
+      - window_process: { regex: "Discord" }
   - commands: ["move --workspace 7"]
     match:
-      - window_process: {regex: "Riot Client|LeagueClientUx|steamwebhelper"}
+      - window_process: { regex: "Riot Client|LeagueClientUx|steamwebhelper" }
   - commands: ["move --workspace 9", "focus --workspace 9"]
     # [9] Stream Workspace
 
     match:
-      - window_process: {regex: "Streamlabs OBS"}
+      - window_process: { regex: "Streamlabs OBS" }
   - commands: ["move --workspace 0", "focus --workspace 0"]
     # [0] Settings Workspace
 
     match:
-      - window_process: {regex: "Taskmgr|vsthost|Mechvibes"}
+      - window_process: { regex: "Taskmgr|vsthost|Mechvibes" }
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
