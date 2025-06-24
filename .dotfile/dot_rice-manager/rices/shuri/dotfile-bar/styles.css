@@ -46,6 +46,8 @@ body {
   font-family: "Monofur Nerd Font Mono", ui-monospace, monospace;
   font-size: 15pt;
   overflow: hidden;
+  padding: 8px;
+  padding-bottom: 0;
 }
 
 #root {

@@ -46,6 +46,8 @@ body {
   font-family: "Pixel Code","Pixelcraft Nerd Font", ui-monospace, monospace;
   font-size: 13.5pt;
   overflow: hidden;
+  padding: 8px;
+  padding-bottom: 0;
 }
 
 #root {
