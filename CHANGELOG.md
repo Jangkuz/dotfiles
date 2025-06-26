@@ -1,5 +1,11 @@
 # aquapaka-dotfiles
 
+## 3.1.4
+
+### Patch Changes
+
+- df54130: fix: temp fix for glazewm 3.9.0 no workspace bug while waiting for 3.9.1 to be published on winget
+
 ## 3.1.3
 
 ### Patch Changes
