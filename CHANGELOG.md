@@ -1,5 +1,11 @@
 # aquapaka-dotfiles
 
+## 3.1.5
+
+### Patch Changes
+
+- b201a0a: feat: use glazewm 3.9.1, no longer need workspace bug fix
+
 ## 3.1.4
 
 ### Patch Changes
