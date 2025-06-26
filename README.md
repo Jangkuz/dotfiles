@@ -29,7 +29,7 @@ Dive in, tweak to your heart's content, and transform your Windows environment i
 
 - Terminal: **Windows Terminal**
 - Shell: **Zsh** inside MSYS2
-- Tiling Window Manager: **GlazeWM 3.9.0**
+- Tiling Window Manager: **GlazeWM 3.9.1**
 - Bar: **Zebar 3.1.1**
 - Package manager: **Winget**
 - Dotfiles manager: **Chezmoi**

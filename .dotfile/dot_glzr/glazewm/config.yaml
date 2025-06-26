@@ -7,16 +7,6 @@ general:
   startup_commands:
     [
       "shell-exec zebar",
-      "move --workspace 2 ",
-      "move --workspace 3 ",
-      "move --workspace 4 ",
-      "move --workspace 5 ",
-      "move --workspace 6 ",
-      "move --workspace 7 ",
-      "move --workspace 8 ",
-      "move --workspace 9 ",
-      "move --workspace 0 ",
-      "move --workspace 1",
     ]
   # Commands to run just before the WM is shutdown.
 
@@ -142,10 +132,7 @@ window_behavior:
 
       shown_on_top: true
 workspaces:
-  # Empty workspace for leftmost screen to prevent error
-  # - name: "Empty"
-  #   keep_alive: false
-  #   bind_to_monitor: 0
+  # Middle and also main screen
   - name: "1"
     keep_alive: true
     bind_to_monitor: 1
@@ -176,11 +163,12 @@ workspaces:
   - name: "0"
     keep_alive: true
     bind_to_monitor: 1
-  - name: "2ndMonitorFix"
-    keep_alive: true
+  # Workspace for leftmost screen to prevent error
+  - name: "LeftMonitorFix"
+    keep_alive: false
     bind_to_monitor: 0
-  - name: "3ndMonitorFix"
-    keep_alive: true
+  - name: "RightMonitorFix"
+    keep_alive: false
     bind_to_monitor: 2
 window_rules:
   - commands: ["ignore"]
