@@ -1,5 +1,11 @@
 # aquapaka-dotfiles
 
+## 3.1.6
+
+### Patch Changes
+
+- 7f7dfe1: fix: re-add fix trick to show all workspace at start
+
 ## 3.1.5
 
 ### Patch Changes
