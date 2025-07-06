@@ -215,145 +215,155 @@
         return (
           <div className="app">
             <div className="left">
-              {output.host && (
-                <>
-                  <div className="os">
-                    <span className="icon os-icon yellow">⭐</span>
-                    <span className="info">{output.host.hostname}</span>
-                  </div>
-                  <div className="uptime">
-                    <span className="icon uptime-icon magenta">⌛</span>
-                    <span className="info">
-                      {formatUptime(output.host.uptime)}
-                    </span>
-                  </div>
-                </>
-              )}
+              <div class="scale-wrapper left-scale">
+                {output.host && (
+                  <>
+                    <div className="os">
+                      <span className="icon os-icon yellow">⭐</span>
+                      <span className="info">{output.host.hostname}</span>
+                    </div>
+                    <div className="uptime">
+                      <span className="icon uptime-icon magenta">⌛</span>
+                      <span className="info">
+                        {formatUptime(output.host.uptime)}
+                      </span>
+                    </div>
+                  </>
+                )}
 
-              {output.media?.currentSession && (
-                <>
-                  <div className="media">
-                    <span className="icon media-icon cyan">♫</span>
-                    <span className="info">
-                      {output.media.currentSession.title}
-                    </span>
-                  </div>
-                </>
-              )}
+                {output.media?.currentSession && (
+                  <>
+                    <div className="media">
+                      <span className="icon media-icon cyan">♫</span>
+                      <span className="info">
+                        {output.media.currentSession.title}
+                      </span>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
 
             <div className="center">
-              {output.glazewm && (
-                <div className="workspaces">
-                  {output.glazewm.currentWorkspaces.map((workspace) => (
-                    <button
-                      className={`workspace ${
-                        workspace.hasFocus && "focused"
-                      } ${workspace.children.length && "has-child"}`}
-                      onClick={() =>
-                        output.glazewm.runCommand(
-                          `focus --workspace ${workspace.name}`
-                        )
-                      }
-                      key={workspace.name}
-                    >
-                      {workspace.hasFocus
-                        ? "❤"
-                        : workspace.children.length
-                        ? "●"
-                        : "◯"}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <div class="scale-wrapper center-scale">
+                {output.glazewm && (
+                  <div className="workspaces">
+                    {output.glazewm.currentWorkspaces.map((workspace) => (
+                      <button
+                        className={`workspace ${
+                          workspace.hasFocus && "focused"
+                        } ${workspace.children.length && "has-child"}`}
+                        onClick={() =>
+                          output.glazewm.runCommand(
+                            `focus --workspace ${workspace.name}`
+                          )
+                        }
+                        key={workspace.name}
+                      >
+                        {workspace.hasFocus
+                          ? "❤"
+                          : workspace.children.length
+                          ? "●"
+                          : "◯"}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="right">
-              {output.glazewm && (
-                <>
-                  {output.glazewm.bindingModes.map((bindingMode) => (
-                    <button className="binding-mode" key={bindingMode.name}>
-                      {bindingMode.displayName ?? bindingMode.name}
+              <div class="scale-wrapper right-scale">
+                {output.glazewm && (
+                  <>
+                    {output.glazewm.bindingModes.map((bindingMode) => (
+                      <button className="binding-mode" key={bindingMode.name}>
+                        {bindingMode.displayName ?? bindingMode.name}
+                      </button>
+                    ))}
+
+                    <button
+                      className={`tiling-direction-icon yellow`}
+                      onClick={() =>
+                        output.glazewm.runCommand("toggle-tiling-direction")
+                      }
+                    >
+                      {output.glazewm.tilingDirection === "horizontal"
+                        ? "⇄"
+                        : "⇵"}
                     </button>
-                  ))}
+                  </>
+                )}
 
-                  <button
-                    className={`tiling-direction-icon yellow`}
-                    onClick={() =>
-                      output.glazewm.runCommand("toggle-tiling-direction")
-                    }
-                  >
-                    {output.glazewm.tilingDirection === "horizontal"
-                      ? "⇄"
-                      : "⇵"}
-                  </button>
-                </>
-              )}
+                {output.network && (
+                  <div className="network">
+                    {getNetworkIcon(output.network)}
+                  </div>
+                )}
 
-              {output.network && (
-                <div className="network">{getNetworkIcon(output.network)}</div>
-              )}
+                {output.cpu && (
+                  <div className="cpu">
+                    <span className="icon cpu-icon red">✂</span>
+                    <span className="info">
+                      {Math.round(output.cpu.usage)}%
+                    </span>
+                  </div>
+                )}
 
-              {output.cpu && (
-                <div className="cpu">
-                  <span className="icon cpu-icon red">✂</span>
-                  <span className="info">{Math.round(output.cpu.usage)}%</span>
-                </div>
-              )}
+                {output.memory && (
+                  <div className="memory">
+                    <span className="icon memory-icon green">☷</span>
+                    <span className="info">
+                      {bytesToGigabytes(output.memory.usedMemory)} GBs
+                    </span>
+                  </div>
+                )}
 
-              {output.memory && (
-                <div className="memory">
-                  <span className="icon memory-icon green">☷</span>
-                  <span className="info">
-                    {bytesToGigabytes(output.memory.usedMemory)} GBs
-                  </span>
-                </div>
-              )}
+                {output.battery && (
+                  <div className="battery">
+                    {output.battery.state === "full" ? (
+                      <span className="icon full-icon green">✔</span>
+                    ) : output.battery.state === "charging" ? (
+                      <span className="icon charging-icon blue">⚡</span>
+                    ) : (
+                      ""
+                    )}
+                    <span className="icon battery-icon yellow">
+                      {getBatteryIcon(output.battery)}
+                    </span>
+                    <span className="info">
+                      {Math.round(output.battery.chargePercent)}%
+                    </span>
+                  </div>
+                )}
 
-              {output.battery && (
-                <div className="battery">
-                  {output.battery.state === "full" ? (
-                    <span className="icon full-icon green">✔</span>
-                  ) : output.battery.state === "charging" ? (
-                    <span className="icon charging-icon blue">⚡</span>
-                  ) : (
-                    ""
-                  )}
-                  <span className="icon battery-icon yellow">
-                    {getBatteryIcon(output.battery)}
-                  </span>
-                  <span className="info">
-                    {Math.round(output.battery.chargePercent)}%
-                  </span>
-                </div>
-              )}
+                {output.audio?.defaultPlaybackDevice && (
+                  <div className="audio">
+                    <span className="icon audio-icon">
+                      {getAudioIcon(output.audio.defaultPlaybackDevice.volume)}
+                    </span>
+                    <span className="info">
+                      {Math.round(output.audio.defaultPlaybackDevice.volume)}%
+                    </span>
+                  </div>
+                )}
 
-              {output.audio?.defaultPlaybackDevice && (
-                <div className="audio">
-                  <span className="icon audio-icon">
-                    {getAudioIcon(output.audio.defaultPlaybackDevice.volume)}
-                  </span>
-                  <span className="info">
-                    {Math.round(output.audio.defaultPlaybackDevice.volume)}%
-                  </span>
-                </div>
-              )}
+                {output.weather && (
+                  <div className="weather">
+                    {getWeatherIcon(output.weather)}
+                    <span className="info">
+                      {Math.round(output.weather.celsiusTemp)}°C
+                    </span>
+                  </div>
+                )}
 
-              {output.weather && (
-                <div className="weather">
-                  {getWeatherIcon(output.weather)}
-                  <span className="info">
-                    {Math.round(output.weather.celsiusTemp)}°C
-                  </span>
-                </div>
-              )}
-
-              {output.date && (
-                <div className="date">
-                  <span className="icon date-icon magenta">⌚</span>
-                  <span className="info">{output.date?.formatted}</span>
-                </div>
-              )}
+                {output.date && (
+                  <div className="date">
+                    <span className="icon date-icon magenta">⌚</span>
+                    <span className="info">{output.date?.formatted}</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         );

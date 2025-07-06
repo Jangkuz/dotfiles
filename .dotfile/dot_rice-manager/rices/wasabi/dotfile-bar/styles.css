@@ -3,20 +3,20 @@
  * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
  */
 
-.red {
-  color: #FB4934;
+ .red {
+  color: #fb4934;
 }
 
 .blue {
-  color: #83A598;
+  color: #83a598;
 }
 
 .green {
-  color: #B8BB26;
+  color: #b8bb26;
 }
 
 .yellow {
-  color: #FABD2F;
+  color: #fabd2f;
 }
 
 .black {
@@ -24,15 +24,15 @@
 }
 
 .cyan {
-  color: #8EC07C;
+  color: #8ec07c;
 }
 
 .magenta {
-  color: #D3869B;
+  color: #d3869b;
 }
 
 .white {
-  color: #EBDBB2;
+  color: #ebdbb2;
 }
 
 html,
@@ -42,8 +42,8 @@ body,
 }
 
 body {
-  color: #EBDBB2;
-  font-family: "Pixel Code","Pixelcraft Nerd Font", ui-monospace, monospace;
+  color: #ebdbb2;
+  font-family: "Pixel Code", "Pixelcraft Nerd Font", ui-monospace, monospace;
   font-size: 13.5pt;
   overflow: hidden;
   padding: 8px;
@@ -51,10 +51,13 @@ body {
 }
 
 #root {
-  border: 1px solid #B8BB26;
+  border: 1px solid #b8bb26;
   border-radius: 10px;
   background: rgb(40 40 40 / 90%);
 }
+
+/* =================================================================== */
+/* NEW: Scale to fit smaller screen size */
 
 .app {
   display: grid;
@@ -67,32 +70,72 @@ body {
 .left,
 .center,
 .right {
+  width: 100%; /* 🟢 Fill the grid cell */
+  height: 100%; /* 🟢 Optional, for vertical fill */
   display: flex;
   align-items: center;
-  padding-bottom: 4px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .left {
-  justify-self: left;
+  justify-content: flex-start;
 }
-
-.left > div {
-  display: flex;
-  align-items: center;
-}
-
 .center {
-  justify-self: center;
+  justify-content: center;
 }
-
 .right {
-  justify-self: end;
+  justify-content: flex-end;
 }
 
-.right > div {
+.scale-wrapper {
+  transform: scale(0.75);
+  display: flex;
+}
+
+.left-scale {
+  transform-origin: center left; /* or center / center right depending */
+  justify-content: left;
+}
+.center-scale {
+  transform-origin: center; /* or center / center right depending */
+  justify-content: center;
+}
+.right-scale {
+  transform-origin: center right; /* or center / center right depending */
+  justify-content: end;
+}
+
+.scale-wrapper {
+  transform: scale(1);
+}
+
+.right-scale > div,
+.left-scale > div {
   display: flex;
   align-items: center;
 }
+
+@media (min-width: 2100px) {
+  .left,
+  .center,
+  .right {
+    padding-bottom: 2px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .scale-wrapper {
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 1366px) {
+  .scale-wrapper {
+    transform: scale(0.55);
+  }
+}
+/* =================================================================== */
 
 .info {
   display: inline-block;
@@ -209,7 +252,7 @@ body {
   cursor: pointer;
 
   &.has-child {
-    color: #EBDBB2;
+    color: #ebdbb2;
   }
 
   &.focused {
@@ -219,6 +262,6 @@ body {
 
   &.focused,
   &:hover {
-    color: #FB4934;
+    color: #fb4934;
   }
 }
