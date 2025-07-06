@@ -130,9 +130,21 @@ body {
   }
 }
 
+@media (max-width: 1600px) {
+  .scale-wrapper {
+    transform: scale(0.625);
+  }
+}
+
+@media (max-width: 1440px) {
+  .scale-wrapper {
+    transform: scale(0.562);
+  }
+}
+
 @media (max-width: 1366px) {
   .scale-wrapper {
-    transform: scale(0.55);
+    transform: scale(0.533);
   }
 }
 /* =================================================================== */
