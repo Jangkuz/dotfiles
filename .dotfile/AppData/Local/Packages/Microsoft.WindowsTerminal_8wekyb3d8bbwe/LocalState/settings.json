@@ -59,13 +59,13 @@
       "adjustIndistinguishableColors": "indexed",
       "colorScheme": "Gruvbox Dark Medium",
       "cursorShape": "vintage",
-      "elevate": true,
+      "elevate": false,
       "font": {
         "cellHeight": "1.2",
         "face": "Pixel Code, Pixelcraft Nerd Font",
         "size": 13.5
       },
-      "opacity": 90,
+      "opacity": 100,
       "padding": "16",
       "scrollbarState": "hidden"
     },
