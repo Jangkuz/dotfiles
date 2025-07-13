@@ -3,36 +3,36 @@
  * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
  */
 
- .red {
-  color: #fb4934;
+.red {
+  color: #f07178;
 }
 
 .blue {
-  color: #83a598;
+  color: #59c2ff;
 }
 
 .green {
-  color: #b8bb26;
+  color: #b8cc52;
 }
 
 .yellow {
-  color: #fabd2f;
+  color: #ffb454;
 }
 
 .black {
-  color: #928374;
+  color: #3e4b59;
 }
 
 .cyan {
-  color: #8ec07c;
+  color: #95e6cb;
 }
 
 .magenta {
-  color: #d3869b;
+  color: #c6a0f6;
 }
 
 .white {
-  color: #ebdbb2;
+  color: #f3f4f5;
 }
 
 html,
@@ -42,8 +42,8 @@ body,
 }
 
 body {
-  color: #ebdbb2;
-  font-family: "Pixel Code", "Pixelcraft Nerd Font", ui-monospace, monospace;
+  color: #f3f4f5;
+  font-family: "Pixelcraft Nerd Font", ui-monospace, monospace;
   font-size: 13.5pt;
   overflow: hidden;
   padding: 8px;
@@ -51,9 +51,9 @@ body {
 }
 
 #root {
-  border: 1px solid #b8bb26;
+  border: 1px solid #59c2ff;
   border-radius: 10px;
-  background: rgb(40 40 40 / 90%);
+  background: rgb(15 20 25 / 90%);
 }
 
 /* =================================================================== */
@@ -120,7 +120,7 @@ body {
   .left,
   .center,
   .right {
-    padding-bottom: 2px;
+    padding-bottom: 4px;
   }
 }
 
@@ -130,9 +130,21 @@ body {
   }
 }
 
+@media (max-width: 1600px) {
+  .scale-wrapper {
+    transform: scale(0.625);
+  }
+}
+
+@media (max-width: 1440px) {
+  .scale-wrapper {
+    transform: scale(0.562);
+  }
+}
+
 @media (max-width: 1366px) {
   .scale-wrapper {
-    transform: scale(0.55);
+    transform: scale(0.533);
   }
 }
 /* =================================================================== */
@@ -239,29 +251,24 @@ body {
 
 .workspaces {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .workspace {
   background: none;
   margin-right: 4px;
-  padding: 5px 8px;
-  color: #928374;
+  padding: 4px 8px;
+  color: #3e4b59;
   border: none;
   border-radius: 2px;
   cursor: pointer;
 
   &.has-child {
-    color: #ebdbb2;
-  }
-
-  &.focused {
-    padding: 4px 8px;
-    font-size: 24px;
+    color: #f3f4f5;
   }
 
   &.focused,
   &:hover {
-    color: #fb4934;
+    color: #f07178;
   }
 }
