@@ -338,22 +338,21 @@ keybindings:
 
     # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
     bindings: ["alt+enter"]
-  - commands: ["focus --recent-workspace"]
-    # Focus the next/previous workspace defined in `workspaces` config.
 
     # Focus the workspace that last had focus.
 
-    #   bindings: ["alt+a"]
+  - commands: ["focus --prev-workspace"]
+    bindings: ["alt+a"]
 
-    # - commands: ["focus --prev-workspace"]
-
-    #   bindings: ["alt+s"]
-
-    # - commands: ["focus --next-workspace"]
+  - commands: ["focus --next-workspace"]
+    bindings: ["alt+s"]
+    
+    # Focus the next/previous workspace defined in `workspaces` config.
+  - commands: ["focus --recent-workspace"]
     bindings: ["alt+d"]
-  - commands: ["focus --workspace 1"]
-    # Change focus to a workspace defined in `workspaces` config.
 
+    # Change focus to a workspace defined in `workspaces` config.
+  - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
     bindings: ["alt+2"]
